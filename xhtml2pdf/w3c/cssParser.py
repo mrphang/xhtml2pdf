@@ -668,7 +668,7 @@ class CSSParser(object):
         ;
         """
         ctxsrc = src
-        src = src[len('@media '):].lstrip()
+        src = src[len('@media'):].lstrip()
         mediums = []
         while src and src[0] != '{':
             medium, src = self._getIdent(src)
@@ -719,7 +719,7 @@ class CSSParser(object):
         ;
         """
         ctxsrc = src
-        src = src[len('@page '):].lstrip()
+        src = src[len('@page'):].lstrip()
         page, src = self._getIdent(src)
         if src[:1] == ':':
             pseudopage, src = self._getIdent(src[1:])
@@ -761,7 +761,7 @@ class CSSParser(object):
         XXX Proprietary for PDF
         """
         ctxsrc = src
-        src = src[len('@frame '):].lstrip()
+        src = src[len('@frame'):].lstrip()
         box, src = self._getIdent(src)
         src, properties = self._parseDeclarationGroup(src.lstrip())
         result = [self.cssBuilder.atFrame(box, properties)]
@@ -770,7 +770,7 @@ class CSSParser(object):
 
     def _parseAtFontFace(self, src):
         ctxsrc = src
-        src = src[len('@font-face '):].lstrip()
+        src = src[len('@font-face'):].lstrip()
         src, properties = self._parseDeclarationGroup(src)
         result = [self.cssBuilder.atFontFace(properties)]
         return src, result
