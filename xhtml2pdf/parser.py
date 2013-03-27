@@ -253,6 +253,11 @@ def CSSCollect(node, c):
 
 
 def CSS2Frag(c, kw, isBlock):
+	"""
+	@param c       pisaContext
+	@param kw      dict
+	@param isBlock boolean
+	"""
     # COLORS
     if "color" in c.cssAttr:
         c.frag.textColor = getColor(c.cssAttr["color"])
